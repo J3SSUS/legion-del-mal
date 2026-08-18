@@ -1,0 +1,28 @@
+name: Tag a Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  crear-release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Brainiac accede a los planes
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Publicar el reporte de misión
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          name: 'Misión ${{ github.ref_name }}'
+          body: |
+            🧠 **Brainiac ha compilado el reporte de esta misión.**
+
+            Tag: `${{ github.ref_name }}`
