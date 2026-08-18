@@ -1,0 +1,29 @@
+name: Bienvenido por Brainiac
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  revision-inicial:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Brainiac responde al agente
+        uses: actions/github-script@v7
+        with:
+          script: |
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: [
+                "🧠 **Brainiac ha detectado un nuevo reporte.**",
+                "",
+                `Tu issue está siendo revisado por Brainiac, agente **${context.payload.issue.user.login}**.`,
+                "",
+                "Un miembro de la Legión del Mal se pondrá en contacto contigo en breve.",
+                "",
+                "_...analizando..._"
+              ].join("\n")
+            });
