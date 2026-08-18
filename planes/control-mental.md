@@ -9,3 +9,8 @@
  3.
  4.
  
+## Plan de escape
+
+- En caso de que el proceso
+
+- Asegurate de que todos

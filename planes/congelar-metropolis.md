@@ -9,3 +9,9 @@ El objetivo es congelar la ciudad de Metropolis
 4.
 5.
 6.
+
+## Plan de escape
+
+- En caso de que el proceso
+
+- Asegurate de que todos
